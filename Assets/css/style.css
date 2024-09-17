@@ -1,0 +1,116 @@
+.category-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-link .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-link .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    border: 2px solid blue;
+}
+
+/* category page */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #343a40;
+    color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-menu a:hover {
+    background-color: #495057;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-toggle {
+    cursor: pointer;
+    color: white;
+    background-color: #343a40;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.navbar-nav .nav-item.dropdown .nav-link::after {
+    content: '▼'; /* Downward arrow */
+    font-size: 0.5rem; 
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-item.dropdown.show .nav-link::after {
+    transform: rotate(180deg); /* Rotate arrow when dropdown is open */
+}
+
+/*search bar */
+.navbar .form-inline .form-control {
+    background-color: #343a40;
+    border: 1px solid #495057;
+    color: white;
+}
+
+.navbar .form-inline .form-control::placeholder {
+    color: #adb5bd;
+}
+
+.navbar .form-inline .btn-outline-success {
+    color: white;
+    border-color: #495057;
+}
+
+.navbar .form-inline .btn-outline-success:hover {
+    background-color: #495057;
+    border-color: #495057;
+}
+
+.star-rating {
+    color: #ffc107;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.product-image {
+    width: 100%;
+    height: auto;
+}
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    flex: 1;
+}
+
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
