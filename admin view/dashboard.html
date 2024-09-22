@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">MyShop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Add New Product</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container my-5">
+        <h2 class="text-center">Product Management Dashboard</h2>
+        <div class="d-flex justify-content-between mb-3">
+            <div class="d-flex">
+                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Filter
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                        <a class="dropdown-item" href="#" onclick="filterProducts('category')">Category</a>
+                        <a class="dropdown-item" href="#" onclick="filterProducts('stock')">Stock</a>
+                        <a class="dropdown-item" href="#" onclick="filterProducts('price')">Price</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body">
+                <!-- Product rows will be generated here by JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 MyShop. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const products = [
+                {
+                    item_id: 1,
+                    item_name: "Product 1",
+                    price: 100,
+                    stock: 50,
+                    description: "Description for product 1",
+                    image_path: "path/to/image1.jpg"
+                },
+                {
+                    item_id: 2,
+                    item_name: "Product 2",
+                    price: 200,
+                    stock: 30,
+                    description: "Description for product 2",
+                    image_path: "path/to/image2.jpg"
+                },
+                {
+                    item_id: 3,
+                    item_name: "Product 3",
+                    price: 150,
+                    stock: 20,
+                    description: "Description for product 3",
+                    image_path: "path/to/image3.jpg"
+                },
+                {
+                    item_id: 4,
+                    item_name: "Product 4",
+                    price: 250,
+                    stock: 10,
+                    description: "Description for product 4",
+                    image_path: "path/to/image4.jpg"
+                },
+                {
+                    item_id: 5,
+                    item_name: "Product 5",
+                    price: 300,
+                    stock: 5,
+                    description: "Description for product 5",
+                    image_path: "path/to/image5.jpg"
+                }
+            ];
+            generateProductTable(products);
+        });
+
+        function filterProducts(criteria) {
+            console.log(`Filtering products by ${criteria}`);
+            // Implement filtering logic here
+        }
+    </script>
+</body>
+</html>
