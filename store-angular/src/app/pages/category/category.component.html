@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="container my-5">
+    <h2 class="text-center">Category Page</h2>
+    <div class="row" id="product-container">
+        <div id="product-container" class="row">
+            <div *ngFor="let product of products" class="col-md-4">
+              <div class="card mb-4">
+                <img [src]="product.image" class="card-img-top" [alt]="product.name" >
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.price }}</p>
+                  <p class="card-text">{{ product.description }}</p>
+                  <div class="star-rating" [innerHTML]="generateStarRating(product.rating)"></div>
+                  <a routerLink="/product-view/{{product.id}}" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+<app-footer></app-footer>

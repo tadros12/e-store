@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
+import { NavbarComponent } from "../../view/navbar/navbar.component";
+import { FooterComponent } from "../../view/footer/footer.component";
+
 
 @Component({
   selector: 'app-home',

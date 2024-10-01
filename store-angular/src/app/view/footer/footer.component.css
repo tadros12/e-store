@@ -1,0 +1,39 @@
+/* Footer Styles */
+footer {
+    background-color: #1c1c1c; /* Matte black */
+    color: #c0c0c0; /* Silver */
+  }
+  
+  footer a {
+    color: #c0c0c0; /* Silver */
+  }
+  
+  footer a:hover {
+    color: #ffffff; /* White */
+  }
+  
+  footer .text-reset {
+    color: #c0c0c0; /* Silver */
+  }
+  
+  footer .text-reset:hover {
+    color: #ffffff; /* White */
+  }
+  
+  footer .bg-dark {
+    background-color: #1c1c1c !important; /* Matte black */
+  }
+  
+  footer .border-bottom {
+    border-bottom: 1px solid #c0c0c0; /* Silver */
+  }
+  
+  footer .fab {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+  
+  footer .fas {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
