@@ -4,6 +4,8 @@ import { NavbarComponent } from "../../view/navbar/navbar.component";
 import { FooterComponent } from "../../view/footer/footer.component";
 import { RouterLink } from '@angular/router';
 import { ProductsList } from '../../products-lists.interface';
+import { ProductsService } from '../../services/products.service';
+import { response } from 'express';
 
 @Component({
   selector: 'app-category',
@@ -13,26 +15,26 @@ import { ProductsList } from '../../products-lists.interface';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  url = 'http://localhost:3000/products';
-  products: ProductsList[] = []; 
+  products: any = [];
 
-  constructor() {}
 
   ngOnInit(): void {
     this.getProducts();
   }
-
-  async getProducts(): Promise<void> {
-    try {
-      const response = await fetch(this.url);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      this.products = await response.json();
-    } catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
+  constructor(public productservice:ProductsService) {}
+  getProducts() {
+    this.productservice.getProducts().subscribe(
+      response => {
+        this.products = response;
+        
+    },
+    error => {
+      console.error(error);
     }
+  );
+
   }
+ 
 
   generateStarRating(rating: number): string {
     let stars = '';
