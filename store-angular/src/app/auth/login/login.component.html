@@ -3,19 +3,29 @@
         <h2 class="text-center">Login</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <form action="" method="post"  [formGroup]="loginForm">
+                <form action="" method="post"  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label for="email">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                        <input formControlname="email" type="email" class="form-control" id="email" placeholder="Enter email"
                         formControlName = "email">
+                        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                            <div *ngIf="loginForm.get('email')?.hasError('email')" class="alert alert-danger">must be email</div>
+                            <div *ngIf="loginForm.get('email')?.hasError('required')" class="alert alert-danger">email is required</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password"
+                        <input formControlname="password" type="password" class="form-control" id="password" placeholder="Password"
                         formControlName = "password">
+                        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                            <div *ngIf="loginForm.get('password')?.hasError('required')" class="alert alert-danger">password is required
+                            </div>
+                            <div *ngIf="loginForm.get('password')?.hasError('minlength')" class="alert alert-danger">password must be at least 6 characters
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block" (click)="onSubmit()">Login</button>
-                    <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <p class="text-center mt-3">Don't have an account? <a routerLink="/signup">Sign Up</a></p>
                 </form>
             </div>
         </div>

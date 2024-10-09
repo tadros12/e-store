@@ -1,1 +1,35 @@
-<p>signup works!</p>
+<div class="container my-5">
+    <h2 class="text-center">Sign Up</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input formControlName="username" type="text" class="form-control" id="username" placeholder="Enter username">
+            <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+              <div *ngIf="signupForm.get('username')?.hasError('required')" class="alert alert-danger">Username is required</div>
+              <div *ngIf="signupForm.get('username')?.hasError('minlength')" class="alert alert-danger">Username must be at least 3 characters</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input formControlName="email" type="email" class="form-control" id="email" placeholder="Enter email">
+            <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+              <div *ngIf="signupForm.get('email')?.hasError('email')" class="alert alert-danger">Must be a valid email</div>
+              <div *ngIf="signupForm.get('email')?.hasError('required')" class="alert alert-danger">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
+            <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+              <div *ngIf="signupForm.get('password')?.hasError('required')" class="alert alert-danger">Password is required</div>
+              <div *ngIf="signupForm.get('password')?.hasError('minlength')" class="alert alert-danger">Password must be at least 6 characters</div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          <p class="text-center mt-3">Do you have an account? <a routerLink="">Log in</a></p>
+        </form>
+      </div>
+    </div>
+  </div>

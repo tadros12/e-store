@@ -7,6 +7,7 @@ import { LoginComponent } from "./auth/login/login.component";
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { SignupComponent } from "./auth/signup/signup.component";
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,10 @@ import { Observable } from 'rxjs';
     ProductViewComponent,
     LoginComponent,
     CommonModule,
-    HttpClientModule, 
-    HttpClientXsrfModule
-  ],
+    HttpClientModule,
+    HttpClientXsrfModule,
+    SignupComponent
+],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
