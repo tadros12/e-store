@@ -14,7 +14,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class CategoryComponent implements OnInit {
   products: any = [];
-  imageUrl = '../../images/';
+  imageUrl = 'assets/images/'; // Base URL for images
 
   constructor(public productservice: ProductsService) {}
 

@@ -15,3 +15,7 @@
         height: 300px; /* Adjust height for extra small screens */
     }
 }
+
+  .carousel-item img {
+    height: 350px;
+  }
