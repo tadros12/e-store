@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AuthService } from '../auth.service'; // Adjust the path as necessary
+import { AuthService } from '../auth.service'; 
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ import { AuthService } from '../auth.service'; // Adjust the path as necessary
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private appComponent: AppComponent) {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
@@ -30,16 +31,17 @@ export class LoginComponent {
           if (response.success) {
             console.log('Login successful', response);
             this.router.navigate(['/home']);
+            this.appComponent.showToast('Login successful', 'success');
           } else {
-            console.error('Login failed', response.message);
+            this.appComponent.showToast('Login failed: ' + response.message, 'error');
           }
         },
         error => {
-          console.error('Login error', error);
+          this.appComponent.showToast('Login error: ' + error.message, 'error');
         }
       );
     } else {
-      console.warn('Form is invalid');
+      this.appComponent.showToast('Form is invalid', 'error');
     }
   }
 }

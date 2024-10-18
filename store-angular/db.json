@@ -94,5 +94,49 @@
       "description": "bnvcbnc",
       "rating": "3"
     }
+  ],
+  "users": [
+    {
+      "id": "6931",
+      "username": "test",
+      "email": "test@email",
+      "password": "123456"
+    },
+    {
+      "id": "7558",
+      "username": "test",
+      "email": "test@email",
+      "password": "123456"
+    },
+    {
+      "id": "00e3",
+      "username": "sdfsadf",
+      "email": "sdfasa@dsafasdf",
+      "password": "123456"
+    },
+    {
+      "id": "f7e7",
+      "username": "zowl",
+      "email": "zowl@email",
+      "password": "123456"
+    },
+    {
+      "id": "9795",
+      "username": "zowl",
+      "email": "zowl@email",
+      "password": "123456"
+    },
+    {
+      "id": "dd29",
+      "username": "test",
+      "email": "test@email.com",
+      "password": "123456"
+    },
+    {
+      "id": "bbd7",
+      "username": "test",
+      "email": "test@emailll",
+      "password": "123456"
+    }
   ]
 }

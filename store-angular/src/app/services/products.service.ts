@@ -12,20 +12,15 @@ export class ProductsService {
   getProducts():Observable<any[]> {
     return this.http.get<any[]>(this.url);
   }
-
   getProduct(id: number):Observable<any> {
     return this.http.get<any>(`${this.url}/${id}`);
   }
   addProduct(product: any): Observable<any> {
     return this.http.post<any>(this.url, product);
   }
-
-  // Update an existing product
   updateProduct(id: number, product: any): Observable<any> {
     return this.http.put<any>(`${this.url}/${id}`, product);
   }
-
-  // Delete a product
   deleteProduct(id: number): Observable<any> {
     return this.http.delete<any>(`${this.url}/${id}`);
   }
