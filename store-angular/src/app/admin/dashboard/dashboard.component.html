@@ -1,0 +1,72 @@
+<app-admin-header></app-admin-header>
+<div class="container my-5">
+    <h2 class="text-center">Product Management Dashboard</h2>
+    <div class="d-flex justify-content-between mb-3">
+        <div class="d-flex">
+            <form action="" method="get" class="form-inline">
+                <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" name="search">
+                <button class="btn btn-outline-success mr-2" type="submit">Search</button>
+            </form>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary" type="button" onclick="toggleFilterOptions()">
+                    Filter
+                </button>
+                <div class="dropdown-menu" id="filterOptions" style="display: none;">
+                    <a class="dropdown-item" href="#" onclick="filterProducts('category')">Category</a>
+                    <a class="dropdown-item" href="#" onclick="filterProducts('stock')">Stock</a>
+                    <a class="dropdown-item" href="#" onclick="filterProducts('price')">Price</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td><img [src]="product.image" class="product-image" [alt]="product.name"></td>
+                    <td>{{ product.name }}</td>
+                    <td>${{ product.price }}</td>
+                    <td>{{ product.stock }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="editProduct(product.id)">Edit</button>
+                        <button class="btn btn-danger" (click)="openDeleteModal(product.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="deleteModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Confirmation</h5>
+        <button type="button" class="close" (click)="closeDeleteModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this product?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeDeleteModal()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

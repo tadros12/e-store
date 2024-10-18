@@ -19,12 +19,16 @@ export class AddProductComponent {
       name: ['', Validators.required],
       price: ['', Validators.required],
       description: ['', Validators.required],
-      rating: ['', Validators.required]
+      rating: ['', Validators.required],
+      category: ['', Validators.required],
+      image: ['', Validators.required]
     });
   }
+  
 
   onSubmit() {
     if (this.productForm.valid) {
+      
       this.productService.addProduct(this.productForm.value).subscribe(
         response => {
           console.log('Product added successfully', response);

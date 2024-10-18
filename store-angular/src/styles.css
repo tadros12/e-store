@@ -58,6 +58,7 @@
 } */
 
 /*search bar */
+
 .navbar .form-inline .form-control {
     background-color: #343a40;
     border: 1px solid #495057;
@@ -92,12 +93,18 @@ body {
 }
 
 .card-img-top {
-    width: 150px;
-    height: 150px;
+    height: 100%;
     object-fit: cover;
     margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+    .card-img-top {
+        height: 300px;
+    }
+    
+}
 .product-image {
+    
     width: 100%;
     height: auto;
 }

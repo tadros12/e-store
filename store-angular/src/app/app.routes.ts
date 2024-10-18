@@ -7,6 +7,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { UpdateProductComponent } from './admin/update-product/update-product.component';
 export const routes: Routes = [
   {
     path: 'home',
@@ -35,5 +37,14 @@ export const routes: Routes = [
   {
     path: 'add-product',
     component:AddProductComponent,
+  },
+  {
+    path: 'dashboard',
+    component:DashboardComponent,
+  }
+  ,
+  {
+    path: 'update-product/:id',
+    component:UpdateProductComponent
   }
 ];
