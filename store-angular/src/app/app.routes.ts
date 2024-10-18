@@ -6,6 +6,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 export const routes: Routes = [
   {
     path: 'home',
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'signup',
     component:SignupComponent,
+  },
+  {
+    path: 'add-product',
+    component:AddProductComponent,
   }
 ];

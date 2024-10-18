@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../auth.service'; // Adjust the path as necessary
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ import { RouterLink } from '@angular/router';
 export class SignupComponent {
   signupForm: FormGroup;
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
     this.signupForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -24,7 +25,20 @@ export class SignupComponent {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      console.warn(this.signupForm.value);
+      const { username, email, password } = this.signupForm.value;
+      this.authService.signup(username, email, password).subscribe(
+        response => {
+          if (response.success) {
+            console.log('Signup successful', response);
+            this.router.navigate(['/home']);
+          } else {
+            console.error('Signup failed', response.message);
+          }
+        },
+        error => {
+          console.error('Signup error', error);
+        }
+      );
     } else {
       console.warn('Form is invalid');
     }
